@@ -51,7 +51,7 @@
 \begin{sloppy}
 \clubpenalty=-100
 \widowpenalty=-100
- \section{extension SS}
+ \section{extension SS} \label{ess}
 Let $f$ be a morphism of converging spectral sequences
 $$f_E: V_1\rightarrow V_2$$
 这是谱序列的态射
@@ -133,6 +133,38 @@ and treat it as a chain complex filtered by the Adams filtration, we obtain an e
 
 Again we offer another proof via homotopy groups. Assume that $y \in E_\infty^{*,*}(V_2)$ is a permanent $d^g$-cycle. By the convergence of ESS we know that it detects a $g$-torsion $[y] \in \{y\}$ with $g([y]) = 0$. Hence there exists $[x] \in \pi_*V_1$ such that $f([x]) = [y]$ by exactness. Assume that $[x]$ is detected by $x \in E_\infty^{*,*}(V_1)$. Then there exists an $f$-extension from $x$ to $y$.
 \end{proof}
+
+\section{修改意见}
+
+\paragraph{} ExtensionSS 里面，\begin{enumerate}
+    \item 删除 assDiff和essBoundary
+    \item 增加 underlyingComplex,定义为，$A_1\rightarrow A_2$，viewed as filtered chain complex 
+    \item 增加 ess，定义为 FilteredComplex.toSpectralSequence underlyingComplex, 可以加bounded条件
+\end{enumerate}
+
+\paragraph{}FourSpectraChain的名字改成ThreeSpectraChian，并且
+\begin{enumerate}
+    \item 增加 $cm_{13}$ 定义为 $cm_12$ composed with $cm_{23}$
+    \item 增加 $essH = ExtensionSS\; cm_{13}$
+\end{enumerate}
+
+\paragraph{}
+￥$ess\_exists$ 调用FilteredComplex的定理，可以假设bounded
+
+\paragraph{}
+$ess\_boundary\_zero$彻底删除，改为：
+\paragraph{} $ess\_boundary\_nesteing$ 和 $ess\_boundary_subobject$ 删除
+
+\paragraph{} $ess\_e0\_iso$删除，改为：
+\begin{enumerate}
+    \item 证明$ess$的$E_0$page 标准同构于 $E_1$的$E_\infty$和$E_2$的$E_\infty$的直和
+    \item 证明ess的微分只有$E_1.page \infty$(的sub)到$E_2.page \infty$（的quotient）的分量，其他三个分量为0
+    \item 该分量定义为$d_n^f$
+    \item 证明$d_0^f$等于f诱导的A的accosiated graded上面的map
+
+\end{enumerate}
+
+\paragraph{}之后的axiom全部删除，按照 Section \ref{ess} 再生成一遍
 
 \begin{thebibliography}{99}
 
