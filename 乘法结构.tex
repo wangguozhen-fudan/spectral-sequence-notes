@@ -1,0 +1,135 @@
+% !TEX program = xelatex
+\documentclass[12pt]{article}
+
+% Chinese support
+\usepackage{xeCJK}
+%\setCJKmainfont{Microsoft YaHei}
+%\setCJKsansfont{Microsoft YaHei}
+%\setCJKmonofont{FangSong}
+
+% Sans-serif font (fontspec for XeLaTeX)
+\usepackage{fontspec}
+\setmainfont{Arial}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+% Sans-serif math font
+\usepackage[T1]{fontenc}
+\usepackage{sfmath}
+\usepackage{amssymb}
+
+% Page margins
+\usepackage[margin=0.1cm]{geometry}
+
+% Section title sizes
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\titleformat{\section}{\fontsize{36}{43}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\fontsize{28}{34}\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\fontsize{22}{27}\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[runin]{\sffamily\fontsize{22}{27}\bfseries}{\theparagraph}{1em}{}
+
+\begin{document}
+\sffamily
+\huge
+
+
+\section{乘法结构}
+\subsection{DGA}
+从dga的massey product的文件里面移动相关的定义过来
+\subsection{谱序列的乘法结构}
+\paragraph{}我们称一个谱序列从第r页开始有乘法，如果
+\begin{enumerate}
+    \item $E_k$是DGA，$k\geq r$
+    \item 不同页的乘法结构和pageiso相容
+\end{enumerate}
+
+\paragraph{}根据SSData的定义，证明$E_\infty$上自然的继承了乘法结构
+
+\paragraph{收敛的乘法结构}
+假设谱序列E收敛到A，我们称这是保乘法的，如果
+\begin{enumerate}
+    \item E和A都具有乘法结构
+    \item A的filtration与乘法相容
+    \item $E_\infty$与A的graded piece的乘法结构相容
+\end{enumerate}
+
+\subsection{乘性谱序列的模}
+假设E是乘性谱序列，定义E-模的概念：
+\paragraph{}E-模是一个谱序列$E'$，每一页$E'_r$都是$E_r$模，相应的各种结构相容，包括Leibnitz法则
+
+\paragraph{}收敛谱序列的模，额外要求E'收敛到的A'是A模，相应的各种结构相容
+
+\subsection{谱序列范畴的moinoidal结构}
+
+\paragraph{}证明谱序列的范畴是symmetric monoidal范畴
+
+\paragraph{}证明converging 谱序列是symmetric monoidal范畴
+
+\paragraph{}证明前面的乘性谱序列是上述结构中的monoid，谱序列的模是monoid的模
+
+\subsection{谱序列的配对}
+
+\paragraph{}谱序列 $E,F$到$H$的配对是一个谱序列的态射
+$$E\otimes F \rightarrow H$$
+
+\paragraph{}
+converging谱序列的配对类似定义
+
+\subsection{Adams 谱序列的乘法}
+本节的spectra都假设有限
+ 
+\paragraph{axiom}
+$Adams(X,Y), Adams(Y,Z)$到 $Adams(X,Z)$有一个配对
+
+\paragraph{}证明$Adams(X,X)$为从第二页开始有乘法的谱序列
+
+\paragraph{}证明$Adams(X,X)$为保乘法收敛的
+
+\paragraph{}证明 $Adams(X,Y)$ 为 $Adams(X,X)$-$Adams(Y,Y)$ 双模
+
+\paragraph{axiom}上述配对具有函子性：
+有限谱的范畴是通过$Adams(-,-)$ enriched over converging 谱序列，并且复合到A的忘性函子之后得到 通常的有限谱形范畴
+
+\subsection{Massey乘积}
+给定 DGA $X1,X2,X3$, $Y1,Y2$, $Z$ 以及DGA的配对
+$X1\otimes X2\rightarrow Y1$,
+$X2\otimes X3\rightarrow Y2$,
+$Y1\otimes X3\rightarrow Z$,
+$X1\otimes Y2\rightarrow Z$,
+并且后两个配对在$X1\otimes X2\otimes X3$上诱导相同的映射（结合律）
+
+这些结构相当于给了范畴
+$$A\rightarrow B\rightarrow C\rightarrow D$$
+在DGA上的一个enrichment
+
+定义Massey乘积如下：
+
+给定$x\in H^*(X1)$, $y\in H^*(X2)$, $z\in H^*(X3)$，满足
+$$x\cdot y = 0 \in H^*(Y1), \quad y\cdot z = 0 \in H^*(Y2)$$
+选取代表链$\tilde{x}\in X1$，$\tilde{y}\in X2$，$\tilde{z}\in X3$以及$s\in Y1$，$t\in Y2$满足
+$$ds = \tilde{x}\cdot\tilde{y}, \quad dt = \tilde{y}\cdot\tilde{z}$$
+定义Massey三重积
+$$\langle x,y,z\rangle = \left[s\cdot\tilde{z} + (-1)^{|x|+1}\tilde{x}\cdot t\right] \in H^*(Z)$$
+其不确定性为$x\cdot H^*(Y2) + H^*(Y1)\cdot z$。
+
+\subsection{Moss定理}
+
+\paragraph{反向crossing} 一个Adams微分$d(x)=y$ 被另一个微分$d(a)=b$反向crossing，如果后者essential，stem相同，且a的filtration低于x，b的fitration高于y，
+
+\paragraph{axiom}
+$a\in[X,Y],b\in[Y,Z],c\in[Z,W]$可以form  toda bracket
+
+假设他们分别被 Adams谱序列中的 $x,y,z$
+detect
+
+假设$x,y,z$在Adams 的$E_r$页可以form massey product 
+
+假设微分 $d_r(？)=xy$, $d_r(?)=yz$ (可能是inessential的)都不被反向crossing
+
+则
+toda bbracket $<a,b,c>$中的某个代表元被$E_r$页
+Massey乘积
+$<x,y,z>$中的某个代表元所detect
+
+\end{document}
