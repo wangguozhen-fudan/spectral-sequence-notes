@@ -227,6 +227,9 @@ Consider an $(f,E_r)$-extension $d_{n}^{f,E_r}(x)=y$ in (\ref{eq:b98be76a}).
     The element $y$ should be interpreted as a coset with indeterminacy given by $B_{1+n-e(f)}^{s+n,t+n}(Y)$, plus the sum of images of $d^{\hat f_{r-1}}_{<n}$ differentials.   This $(f,E_r)$-extension is \emph{essential} if this coset does not contain 0.
 \end{remark}
 
+\paragraph{}
+For $l<l'$, an extension of level $l$ implies an extension of the same type of level $l'$, but the latter might be inessential.
+
 \subsection{crossings}
 
 \begin{definition}\label{def:41d51149}
@@ -337,9 +340,30 @@ The above Definition~\ref{def:41d51149}, and Proposition~\ref{prop:cross-f-Er} c
 please make the precise statement.
 
 \paragraph{}
-The above definition can be similarly defined for extensions of level $l$, such that there is a crossing of a $(f,E_r)$-extension with level $l$ iff the corresponding $\hat{f}$-extension has a crossing
+The above definition can be similarly defined for extensions of level $l$: a crossing of the $(f,E_r)$-extension of level $l$, $d_{n}^{f,E_r,l}(x)=y$, is defined as an essential $(f, E_{r-a})$-extension of level $l$ from some $x'\in Z_{r-1-a}^{s+a,t+a}(X)$ to
+$$y'\in Z_{r-1-n+b+e(f)}^{s+n-b,t+n-b}(Y)\backslash B_{1+n-b-e(f)}^{s+n-b,t+n-b}(Y)$$
+for $0<a \le r-2$ and $0\le b\le n-a-e(f)$.
 
-please make the precise statement.
+\begin{proposition}\label{prop:cross-f-Er-level}
+    An $(f,E_r)$-extension of level $l$, $d_{n}^{f,E_r,l}(x)=y$ (\ref{eq:b98be76aw}), has a crossing if and only if the synthetic $\hat f_{r-1}$-extension
+    $$d_{n}^{\hat f_{r-1}}(\lambda^l x)=\lambda^{n-e(f)+l} y$$
+    has a crossing. Here a crossing of the latter has the form
+    \begin{equation}\label{eq:cross-level}
+        d_{n-a-b}^{\hat f_{r-1}}(\lambda^{a+l} x')=\lambda^{n-b-e(f)+l} y',
+    \end{equation}
+    which corresponds to the $(f,E_{r-a})$-extension of level $l$ from $x'$ to $y'$.
+\end{proposition}
+
+\begin{proof}
+    The proof is analogous to that of Proposition~\ref{prop:cross-f-Er}. A crossing of the synthetic $\hat f_{r-1}$-extension $d_n^{\hat f_{r-1}}(\lambda^l x)=\lambda^{n-e(f)+l}y$ has the form (\ref{eq:cross-level}). Consider the commutative diagram
+    $$\xymatrix{
+        \Sus^{0,e(f)}\nu X/\lambda^{r-1-a} \ar[r]^-{\hat f_{r-1-a}} \ar[d]_{\lambda^a} & \nu Y/\lambda^{r-1-a} \ar[d]^{\lambda^a}\\
+        \Sus^{0,e(f)+a}\nu X/\lambda^{r-1}\ar[r]_-{\hat f_{r-1}} & \Sus^{0,a}\nu Y/\lambda^{r-1}.\\
+    }$$
+    Lifting (\ref{eq:cross-level}) along $\lambda^a$ yields a differential
+    $$d_{n-a-b}^{\hat f_{r-1-a}}(\lambda^l x')=\lambda^{n-a-b-e(f)+l}y''$$
+    for some $y''$ with $y''\equiv y'\mod B_{1+n-b-e(f)}^{s+n-b,t+n-b}(Y)$, which is essential if and only if (\ref{eq:cross-level}) is essential. This is precisely a crossing of the $(f,E_r)$-extension of level $l$ at $x$.
+\end{proof}
 
 \subsection{extension at $E_r$ page and hidden extensions in $Adams$ spectral sequences}
 \begin{proposition}
